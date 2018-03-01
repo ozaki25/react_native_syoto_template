@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 
 class Hello extends Component {
   static navigationOptions = {
@@ -9,6 +9,7 @@ class Hello extends Component {
     return (
       <View>
         <Text>Hello!</Text>
+        <Button title="NEXT" onPress={() => this.props.navigation.navigate('World')} />
       </View>
     );
   }
