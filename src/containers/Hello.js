@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Text, TouchableOpacity, View } from 'react-native';
+import CheckedMessage from '../components/CheckedMessage';
+import UncheckedMessage from '../components/UncheckedMessage';
 
 class Hello extends Component {
   static navigationOptions = {
@@ -20,7 +22,7 @@ class Hello extends Component {
       <View>
         <Text>Hello!</Text>
         <TouchableOpacity onPress={this.onPressCheck}>
-          <Text>チェックをするとボタンが活性化します</Text>
+          {this.state.checked ? <CheckedMessage /> : <UncheckedMessage />}
         </TouchableOpacity>
         <Button title="Next" onPress={this.onPressNext} disabled={!this.state.checked} />
       </View>
