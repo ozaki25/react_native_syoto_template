@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
-import { Button, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import Button from '../components/Button';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'powderblue',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+  },
+});
 
 class ConfirmScreen extends Component {
   static navigationOptions = {
@@ -21,9 +31,9 @@ class ConfirmScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>{this.state.input}</Text>
-        <Button title="Next" onPress={this.onPressNext} />
+        <Button onPress={this.onPressNext}>Next</Button>
       </View>
     );
   }

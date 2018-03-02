@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
-import { Button, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Button from '../components/Button';
 import CheckedMessage from '../components/CheckedMessage';
 import UncheckedMessage from '../components/UncheckedMessage';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'powderblue',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+  },
+  checkMessage: {
+    backgroundColor: 'white',
+    borderRadius: 3,
+    marginBottom: 15,
+    padding: 10,
+  },
+});
 
 class CheckScreen extends Component {
   static navigationOptions = {
@@ -19,12 +35,13 @@ class CheckScreen extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Hello!</Text>
-        <TouchableOpacity onPress={this.onPressCheck}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this.onPressCheck} style={styles.checkMessage}>
           {this.state.checked ? <CheckedMessage /> : <UncheckedMessage />}
         </TouchableOpacity>
-        <Button title="Next" onPress={this.onPressNext} disabled={!this.state.checked} />
+        <Button onPress={this.onPressNext} disabled={!this.state.checked}>
+          Next
+        </Button>
       </View>
     );
   }

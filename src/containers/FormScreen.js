@@ -1,5 +1,22 @@
 import React, { Component } from 'react';
-import { Button, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import AlertDialog from '../components/AlertDialog';
+import Button from '../components/Button';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'powderblue',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+  },
+  inputTextContainer: {
+    backgroundColor: 'white',
+    borderRadius: 3,
+    marginBottom: 15,
+    padding: 5,
+  },
+});
 
 class FormScreen extends Component {
   static navigationOptions = {
@@ -8,22 +25,33 @@ class FormScreen extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { input: '' };
+    this.state = {
+      input: '',
+      dialogVisible: false,
+    };
   }
 
-  onPressNext = () => this.props.navigation.navigate('ConfirmScreen', { input: this.state.input });
+  onPressNext = () => {
+    const { input } = this.state;
+    if (input) {
+      this.props.navigation.navigate('ConfirmScreen', { input });
+    } else {
+      this.setState({ dialogVisible: true });
+    }
+  };
 
   onChangeText = input => this.setState({ input });
 
+  closeDialog = () => this.setState({ dialogVisible: false });
+
   render() {
     return (
-      <View>
-        <Text>World!</Text>
-        <Text>{this.state.input}</Text>
-        <View>
-          <TextInput onChangeText={this.onChangeText} />
+      <View style={styles.container}>
+        <View style={styles.inputTextContainer}>
+          <TextInput onChangeText={this.onChangeText} style={styles.inputText} />
         </View>
-        <Button title="Next" onPress={this.onPressNext} />
+        <Button onPress={this.onPressNext}>Next</Button>
+        <AlertDialog visible={this.state.dialogVisible} closeDialog={this.closeDialog} />
       </View>
     );
   }
