@@ -9,6 +9,6 @@
   "rules": {
     "max-len": [1, { "code": 120 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": [2, { "ignore": ["navigation"] }]
+    "react/prop-types": [2, { "ignore": ["navigation", "children"] }]
   }
 }
