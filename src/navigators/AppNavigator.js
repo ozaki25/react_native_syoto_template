@@ -1,10 +1,12 @@
 import { StackNavigator } from 'react-navigation';
-import Hello from '../containers/Hello';
-import World from '../containers/World';
+import CheckScreen from '../containers/CheckScreen';
+import FormScreen from '../containers/FormScreen';
+import ConfirmScreen from '../containers/ConfirmScreen';
 
 const AppNavigator = StackNavigator({
-  Hello: { screen: Hello },
-  World: { screen: World },
+  CheckScreen: { screen: CheckScreen },
+  FormScreen: { screen: FormScreen },
+  ConfirmScreen: { screen: ConfirmScreen },
 });
 
 export default AppNavigator;

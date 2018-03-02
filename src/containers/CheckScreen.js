@@ -3,9 +3,9 @@ import { Button, Text, TouchableOpacity, View } from 'react-native';
 import CheckedMessage from '../components/CheckedMessage';
 import UncheckedMessage from '../components/UncheckedMessage';
 
-class Hello extends Component {
+class CheckScreen extends Component {
   static navigationOptions = {
-    title: 'Hello',
+    title: 'CheckScreen',
   };
 
   constructor(props) {
@@ -15,7 +15,7 @@ class Hello extends Component {
 
   onPressCheck = () => this.setState({ checked: !this.state.checked });
 
-  onPressNext = () => this.props.navigation.navigate('World');
+  onPressNext = () => this.props.navigation.navigate('FormScreen');
 
   render() {
     return (
@@ -30,4 +30,4 @@ class Hello extends Component {
   }
 }
 
-export default Hello;
+export default CheckScreen;
