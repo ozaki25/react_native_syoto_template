@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   },
   checkMessage: {
     backgroundColor: 'white',
-    borderRadius: 3,
     marginBottom: 15,
     padding: 10,
   },

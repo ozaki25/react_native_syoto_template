@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'seagreen',
     paddingVertical: 10,
-    borderRadius: 5,
   },
   disabled: {
     backgroundColor: 'darkgray',

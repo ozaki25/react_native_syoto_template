@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import AlertDialog from '../components/AlertDialog';
+import { Dialog } from 'react-native-simple-dialogs';
 import Button from '../components/Button';
 
 const styles = StyleSheet.create({
@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   },
   inputTextContainer: {
     backgroundColor: 'white',
-    borderRadius: 3,
     marginBottom: 15,
     padding: 5,
   },
@@ -51,7 +50,14 @@ class FormScreen extends Component {
           <TextInput onChangeText={this.onChangeText} style={styles.inputText} />
         </View>
         <Button onPress={this.onPressNext}>Next</Button>
-        <AlertDialog visible={this.state.dialogVisible} closeDialog={this.closeDialog} />
+        <Dialog
+          title="エラー"
+          visible={this.state.dialogVisible}
+          buttons={<Button title="close" onPress={this.closeDialog} />}
+          buttonsStyle={styles.buttonStyle}
+        >
+          <Text>何か入力して下さい</Text>
+        </Dialog>
       </View>
     );
   }
