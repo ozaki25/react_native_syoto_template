@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: 'seagreen',
+    backgroundColor: 'mediumseagreen',
     paddingVertical: 10,
   },
   disabled: {
     backgroundColor: 'darkgray',
   },
   text: {
+    color: 'white',
     fontSize: 18,
   },
   disabledText: {
@@ -30,11 +31,13 @@ const Button = ({ children, onPress, disabled }) => (
 );
 
 Button.propTypes = {
+  children: PropTypes.string,
   onPress: PropTypes.func,
   disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
+  children: '',
   onPress: () => {},
   disabled: false,
 };

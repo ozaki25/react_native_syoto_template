@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     padding: 5,
   },
+  dialogCloseButton: {
+    marginHorizontal: 15,
+    marginBottom: 10,
+  },
 });
 
 class FormScreen extends Component {
@@ -35,11 +39,13 @@ class FormScreen extends Component {
     if (input) {
       this.props.navigation.navigate('ConfirmScreen', { input });
     } else {
-      this.setState({ dialogVisible: true });
+      this.openDialog();
     }
   };
 
   onChangeText = input => this.setState({ input });
+
+  openDialog = () => this.setState({ dialogVisible: true });
 
   closeDialog = () => this.setState({ dialogVisible: false });
 
@@ -47,14 +53,14 @@ class FormScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.inputTextContainer}>
-          <TextInput onChangeText={this.onChangeText} style={styles.inputText} />
+          <TextInput onChangeText={this.onChangeText} style={styles.inputText} autoFocus />
         </View>
         <Button onPress={this.onPressNext}>Next</Button>
         <Dialog
           title="エラー"
+          buttons={<Button onPress={this.closeDialog}>Close</Button>}
+          buttonsStyle={styles.dialogCloseButton}
           visible={this.state.dialogVisible}
-          buttons={<Button title="close" onPress={this.closeDialog} />}
-          buttonsStyle={styles.buttonStyle}
         >
           <Text>何か入力して下さい</Text>
         </Dialog>
